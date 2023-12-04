@@ -3,6 +3,7 @@
 1. [Instalar PostgreSQL](#schema1)
 2. [Instalar psycopg2](#schema2)
 3. [3- Paso a paso para crear una base de datos y un usuario en PostgreSQL](#schema3)
+4. [Demo2: Creating table with Cassandra](#schema4)
 
 
 <hr>
@@ -77,3 +78,40 @@ CREATE DATABASE studentdb;
 # para saber la base de datos en la que estas
 SELECT current_database();
 ```
+
+
+
+<hr>
+
+<a name="schema4"></a>
+
+## 4- Demo2: Creating table with Cassandra
+
+- Instalar la librearía para que se ejecute Apache Cassandra.
+```
+pip install cassadra-driver
+```
+- Instalar Apache Cassandra para ejecutarlo localmente en locacl. 
+Pasos a seguir: https://cassandra.apache.org/doc/stable/cassandra/getting_started/installing.html
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
