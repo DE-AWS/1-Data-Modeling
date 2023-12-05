@@ -180,8 +180,50 @@ más allá de la 3NF, como la Forma Normal de Boyce-Codd (BCNF) y la Cuarta Form
 más específicas.
 
 
+<hr>
+
+<a name="schema7"></a>
+
+## 7. Clustering Column
+
+En Apache Cassandra, un "clustering column" se refiere a una columna en la clave primaria de una tabla que 
+determina el orden de los datos dentro de una partición. La clave primaria en Cassandra se compone de dos partes: 
+la "partición key" y las "clustering columns".
+
+- Partición Key: Es responsable de la distribución de los datos a través de los nodos del clúster. 
+Cada fila de la tabla pertenece a una partición determinada según los valores de la partición key.
+
+- Clustering Columns: Son responsables de la ordenación de los datos dentro de una partición. 
+Los datos dentro de una partición se ordenan según los valores de las clustering columns.
 
 
 
 
+En una clave primaria compuesta en Cassandra, la primera columna especificada es la "partición key", y 
+las columnas subsiguientes son las "clustering columns".
 
+Aquí hay un ejemplo con una explicación más detallada:
+
+```
+CREATE TABLE ejemplo (
+    partition_key_column text,
+    clustering_column1 int,
+    clustering_column2 text,
+    other_columns text,
+    PRIMARY KEY (partition_key_column, clustering_column1, clustering_column2)
+);
+```
+
+En este caso:
+
+partition_key_column es la "partición key". Es la primera columna en la clave primaria y se utiliza para distribuir 
+los datos a través de las particiones en el clúster.
+
+clustering_column1 y clustering_column2 son las "clustering columns". Son las columnas que determinan el orden de 
+los datos dentro de una partición.
+
+Cuando realizas consultas en esta tabla, la "partición key" especifica la partición a la que pertenecen los datos, 
+y las "clustering columns" determinan el orden de los datos dentro de esa partición.
+
+
+Lesson  3 - Demo 3 -clustering-column.ipynb
